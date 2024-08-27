@@ -2,12 +2,16 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { Stack, useRouter } from "expo-router";
 import { AuthProvider, useAuth } from "@/context/authContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const RootLayout = () => {
+  const queryClient = new QueryClient();
   return (
-    <AuthProvider>
-      <MainLayout />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <MainLayout />
+      </AuthProvider>
+    </QueryClientProvider>
   );
 };
 
