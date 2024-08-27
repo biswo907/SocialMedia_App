@@ -26,7 +26,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   title,
   onPress,
   loading = false,
-  hasShadow = false,
+  hasShadow = true,
   label,
 }) => {
   const shadowStyle = {

@@ -1,0 +1,28 @@
+const handleSignup = async () => {
+    console.log("Signup");
+    if (!email && !password) {
+      Alert.alert("Please Add Both Fields");
+      return;
+    }
+
+    setIsLoading(true);
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          name: "John",
+        },
+      },
+    });
+
+    if (error) Alert.alert(error.message);
+    if (!session)
+      Alert.alert("Please check your inbox for email verification!");
+    setIsLoading(false);
+    console.log("Session", session);
+    console.log("Error", error);
+  };

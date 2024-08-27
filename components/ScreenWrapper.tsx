@@ -14,6 +14,7 @@ const ScreenWrapper = ({ children, bg }) => {
         flex: 1,
         backgroundColor: bg,
       }}
+      // className="bg-gradient-to-b from-[#f5f7fa] to-[#c3cfe2]"
     >
       {children}
     </View>
