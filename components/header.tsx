@@ -4,7 +4,7 @@ import BackButton from "./BackButton";
 
 const Header = ({ title, onPressBack }) => {
   return (
-    <View className="w-full  flex flex-row  items-center ">
+    <View className="w-full  flex flex-row  items-center">
       <BackButton onPress={onPressBack} />
       <View
         className="flex items-center flex-row w-[60%] justify-center"
