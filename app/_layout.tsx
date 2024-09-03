@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Stack, useRouter } from "expo-router";
 import { AuthProvider, useAuth } from "@/context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const RootLayout = () => {
   const queryClient = new QueryClient();
@@ -21,12 +22,15 @@ const MainLayout = () => {
   const router = useRouter();
 
   useEffect(() => {
-    //isLogin
-    if (true) {
-      router.replace("/home");
-    } else {
-      router.replace("/welcome");
-    }
+    const getData = async () => {
+      const value = await AsyncStorage.getItem("isLogin");
+      if (value !== null) {
+        router.replace("/home");
+      } else {
+        router.replace("/welcome");
+      }
+    };
+    getData();
   }, []);
 
   return <Stack screenOptions={{ headerShown: false }} />;

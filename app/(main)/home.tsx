@@ -1,4 +1,10 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import ScreenWrapper from "@/components/ScreenWrapper";
 import { NotificationIcon, PlusIcon } from "@/components/allBtn";
@@ -15,7 +21,10 @@ const Home = () => {
         </View>
         <View className="flex items-center flex-row" style={{ gap: 12 }}>
           <NotificationIcon size={28} />
-          <PlusIcon size={25} />
+
+          <TouchableOpacity onPress={() => router.push("/createPost")}>
+            <PlusIcon size={25} />
+          </TouchableOpacity>
           <Avtar onPress={() => router.push("/profile")} />
         </View>
       </View>

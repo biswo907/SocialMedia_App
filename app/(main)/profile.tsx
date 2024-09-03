@@ -8,6 +8,7 @@ import { DemoApi } from "@/api/api";
 import { LogoutIcon } from "@/components/allBtn";
 import CustomButton from "@/components/Button";
 import App from "@/components/animation";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Profile = () => {
   const navigation = useNavigation();
@@ -23,6 +24,8 @@ const Profile = () => {
 
   const handleLogout = () => {
     console.log("Logout");
+    router.replace("/welcome");
+    AsyncStorage.clear();
   };
   const handleBack = () => {
     navigation.goBack();

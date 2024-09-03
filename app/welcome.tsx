@@ -36,7 +36,7 @@ const WelcomeScreen = () => {
           />
         </View>
 
-        <Text onPress={() => router.push("login")}>Login</Text>
+        {/* <Text onPress={() => router.push("login")}>Login</Text> */}
       </View>
     </ScreenWrapper>
   );
